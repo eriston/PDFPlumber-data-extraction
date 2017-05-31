@@ -24,8 +24,7 @@ img = page.to_image()
 img.draw_rects(page.extract_words())
 '''
 
-![An example of visual debugging][exampleimg]
-[exampleimg]: bmpsheet.bmp "An example of visual debugging"
+![](bmpsheet.bmp)
 
 (Actual data has been blured from this example image.)
 
