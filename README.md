@@ -10,9 +10,11 @@ PDFPlumber is a python tool for extracting data, including table formatted data 
   - VISUAL DEBUGGING!
 
 # Installation
+
 '''
 pip install pdfplumber
 '''
+
 For visual debugging, ImageMagick also needs to be installed as described on the PDFPlumber page above.
 
 # Visual Debugging
