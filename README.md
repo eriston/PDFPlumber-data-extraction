@@ -20,11 +20,11 @@ For visual debugging, ImageMagick also needs to be installed as described on the
 # Visual Debugging
 
 PDFPlumber allows you visually inspect how the parser sees the documents to refine your optimization.
-'''
+~~~~
 page = pdf.pages[0]
 img = page.to_image()
 img.draw_rects(page.extract_words())
-'''
+~~~~
 
 ![](bmpsheet.bmp)
 
@@ -34,7 +34,7 @@ img.draw_rects(page.extract_words())
 
 For this example data is extracted for an actual project from radio dispatch reports which were provided in PDF form.
 
-'''
+~~~~
 import pdfplumber
 import os
 import re
@@ -49,10 +49,10 @@ for path, subdirs, files in os.walk('/home/user/PDFreports/'):
         all_files.append(os.path.join(path, name))
 
 all_files = [x for x in all_files if ('_final.pdf' in x.lower()) or ('_final_report.pdf' in x.lower())]
-'''
+~~~~
 Imports and gathering of file names.
 
-'''
+~~~~
 events = []
 for f in tqdm(all_files):
     with pdfplumber.open(f) as pdf:
@@ -77,10 +77,10 @@ for f in tqdm(all_files):
         events.append(lines)
 
 100%|██████████| 1726/1726 [09:43<00:00,  3.04it/s]
-'''
+~~~~
 For this sample, there wasn't a lot of overly complex formatted data, so the needed data could be found by examining the lines of text extracted from the file.
 
-'''
+~~~~
 all_evts = {}
 for counter, event in tqdm(enumerate(events[:])):
     evt = {}
@@ -101,11 +101,11 @@ for counter, event in tqdm(enumerate(events[:])):
         all_evts[counter] = evt
 
 1726it [00:00, 6206.80it/s]
-'''
+~~~~
 The extracted lines could then be parsed using python's excellent regex support to isolate the needed data.
 
-'''
+~~~~
 with open('cad.json', 'w') as outfile:
     json.dump(all_evts, outfile)
-'''
+~~~~
 And export the data for use as a JSON file.
